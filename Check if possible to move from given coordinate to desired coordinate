@@ -1,0 +1,41 @@
+
+class Solution {
+    static int gcd(int a,int b)
+    {
+        if(a==0||b==0)
+        {
+            if(a==0)
+            {
+                return b;
+            }
+            return a;
+        }
+        else if(a==b)
+        {
+            return a;
+        }
+        else if(a>b)
+        {
+            return gcd(b,a%b);
+        }
+        else
+        {
+            return gcd(a,b%a);
+        }
+    }
+    static int isPossible(int x, int y, int a, int b) {
+        // code here
+        int p,q;
+        if(x<0) x=-x;
+        if(y<0) y=-y;
+        if(a<0) a=-a;
+        if(b<0) b=-b;
+        p=gcd(x,y);
+        q=gcd(a,b);
+        if(p==q)
+        {
+            return 1;
+        }
+        return 0;
+    }
+};
