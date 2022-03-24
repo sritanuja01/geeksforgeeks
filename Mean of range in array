@@ -1,0 +1,29 @@
+class Solution{
+    public int f_mean(int l,int r,int[] a)
+    {
+        int sum=0;
+        int k=1;
+        for(int i=l;i<=r;i++)
+        {
+            sum=sum+a[i];
+            k++;
+        }
+        k=k-1;
+        sum=(int)sum/k;
+        return sum;
+    }
+    public ArrayList<Integer> findMean(int a[],int qu[],int n,int q){
+        
+        // Complete the function
+        ArrayList<Integer> b=new ArrayList<>();
+        for(int i=0;i<qu.length-1;i++)
+        {
+            int l=qu[i];
+            int r=qu[i+1];
+            i++;
+            b.add(f_mean(l,r,a));
+        }
+        return b;
+    }    
+    
+}
